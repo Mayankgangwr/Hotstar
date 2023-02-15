@@ -1,0 +1,42 @@
+.react-multiple-carousel__arrow{
+    display: none;
+}
+.nav-link{
+    color: #fff !important;
+}
+.text-white{
+    color: #fff !important;
+}
+.p-2-px{
+    padding: 2px !important;
+}
+.mx-2-px{
+    margin-left: 2.5px !important;
+    margin-right: 2.5px !important;
+}
+.slider-img{
+    height:280px;
+    width:100%;
+    border-radius: 7px;
+}
+.movie-logo-img{
+    height:90px;
+    width:100%;
+    border-radius: 7px;
+}
+.fw-100{
+    font-weight: 100;
+}
+.fs-12{
+    font-size: 12px;
+}
+.bg-light-black{
+    background-color: #515050;
+    color: #fff;
+    font-weight:100;
+}
+.movie-ss-img{
+    height:180px;
+    width:100%;
+    border-radius: 7px;
+}
