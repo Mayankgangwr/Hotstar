@@ -1,2 +1,2 @@
-# Hotstar
+# mypro
 Created with CodeSandbox
