@@ -4,6 +4,7 @@ import Home from "./home";
 import Movies from "./movies";
 import Lists from "./list";
 import Watch from "./watch";
+import AddMovie from "./addmovie";
 const Apps = () => {
   return (
     <>
@@ -13,6 +14,7 @@ const Apps = () => {
           <Route path="/movies" element={<Movies />} />
           <Route path="/lists" element={<Lists />} />
           <Route path="/watch" element={<Watch />} />
+          <Route path="/addmovie" element={<AddMovie />} />
         </Routes>
       </BrowserRouter>
     </>
