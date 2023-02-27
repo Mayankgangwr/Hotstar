@@ -1,0 +1,14 @@
+.d-mobile {
+  display: none !important;
+}
+.d-desktop {
+  display: block !important;
+}
+@media screen and (max-width: 600px) {
+  .d-mobile {
+    display: block !important;
+  }
+  .d-desktop {
+    display: none !important;
+  }
+}

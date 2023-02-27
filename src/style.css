@@ -1,3 +1,5 @@
+body {
+}
 .react-multiple-carousel__arrow {
   display: none;
 }
@@ -5,7 +7,7 @@
   color: #fff !important;
 }
 .text-white {
-  color: #000 !important;
+  color: #fff !important;
   font-size: large;
   font-weight: bolder;
 }
