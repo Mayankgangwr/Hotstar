@@ -23,6 +23,11 @@ body {
   width: 100%;
   border-radius: 7px;
 }
+.movie-img {
+  height: 180px;
+  width: 100%;
+  border-radius: 7px;
+}
 .movie-logo-img {
   height: 90px;
   width: 100%;

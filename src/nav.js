@@ -12,7 +12,7 @@ const Nav = () => {
   ];
   return (
     <>
-      <nav class="navbar navbar-expand-lg navbar-dark bg-light-black">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-light-black px-0">
         <div class="container-fluid">
           <a class="navbar-brand mt-2 mt-lg-0 d-mobile" href="#">
             <img
@@ -39,9 +39,12 @@ const Nav = () => {
             >
               {links.map((el) => (
                 <li>
-                  <a class="dropdown-item text-capitalize text-light" href="#">
+                  <Link
+                    class="dropdown-item text-capitalize text-light"
+                    to={`/list/${el}`}
+                  >
                     {el}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -61,7 +64,7 @@ const Nav = () => {
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
               {links.map((el) => (
                 <li class="nav-item">
-                  <a class="nav-link text-capitalize" href="#">
+                  <a class="nav-link text-capitalize" href={`/list/${el}`}>
                     {el}
                   </a>
                 </li>

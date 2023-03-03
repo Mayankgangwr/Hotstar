@@ -11,9 +11,9 @@ const Apps = () => {
       <BrowserRouter>
         <Routes>
           <Route index element={<Home />} />
-          <Route path="/movies" element={<Movies />} />
-          <Route path="/lists" element={<Lists />} />
-          <Route path="/watch" element={<Watch />} />
+          <Route path="/movie/:id" element={<Movies />} />
+          <Route path="/list/:tag" element={<Lists />} />
+          <Route path="/watch/:id" element={<Watch />} />
           <Route path="/addmovie" element={<AddMovie />} />
         </Routes>
       </BrowserRouter>

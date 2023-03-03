@@ -1,5 +1,6 @@
-import Rect, { useState } from "react";
-
+import Rect, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import axios from "axios";
 const AddMovie = () => {
   const [data, setData] = useState({
     title: "",
@@ -8,8 +9,21 @@ const AddMovie = () => {
     language: "",
     starcast: "",
     link: "",
+    watchlink: "",
     img: "",
+    tag: "",
   });
+  const [allmovie, setAllmovie] = useState([]);
+  useEffect(() => {
+    getMovie();
+  }, []);
+  function getMovie() {
+    axios
+      .get(`https://sattasafari.com/hotstar/read.php`)
+      .then(function (response) {
+        setAllmovie(response.data);
+      });
+  }
   const handleChange = (e) => {
     const name = e.target.name;
     const value = e.target.value;
@@ -17,12 +31,35 @@ const AddMovie = () => {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    alert("ok");
+    if (data.year !== "" && data.wood !== "" && data.language !== "") {
+      axios
+        .post(`https://sattasafari.com/hotstar/addmovie.php`, data)
+        .then(function (response) {
+          alert(response.data.message);
+          if ((response.data.message = "Data Added")) {
+            setData({
+              ...data,
+              title: "",
+              starcast: "",
+              link: "",
+              watchlink: "",
+              img: "",
+              tag: "",
+            });
+          }
+        });
+    } else {
+      alert(
+        `Select ${data.wood !== "" ? "" : "Wood"} ${
+          data.year !== "" ? "" : "Year"
+        } ${data.language !== "" ? "" : "Language"}`
+      );
+    }
   };
   return (
     <>
       <section class="h-100 h-custom">
-        <div class="container py-5 h-100">
+        <div class="container py-0 h-100">
           <div class="row d-flex justify-content-center align-items-center h-100">
             <div class="col-lg-8 col-xl-6">
               <div class="card rounded-3">
@@ -36,9 +73,7 @@ const AddMovie = () => {
                   alt="Sample photo"
                 />
                 <div class="card-body p-4 p-md-5">
-                  <h3 class="mb-3 text-center">
-                    {process.env.REACT_APP_BASEURL}
-                  </h3>
+                  <h3 class="mb-3 text-center">{`Add New Movie`}</h3>
 
                   <form class="px-md-2" onSubmit={handleSubmit}>
                     <div class="mb-4">
@@ -50,6 +85,7 @@ const AddMovie = () => {
                         onChange={handleChange}
                         class="form-control"
                         placeholder="Enter Movie Name"
+                        required
                       />
                     </div>
                     <div class="mb-4">
@@ -61,6 +97,7 @@ const AddMovie = () => {
                         onChange={handleChange}
                         class="form-control"
                         placeholder="Enter Star Cast"
+                        required
                       />
                     </div>
                     <div class="mb-4">
@@ -115,6 +152,19 @@ const AddMovie = () => {
                         onChange={handleChange}
                         class="form-control"
                         placeholder="Enter Download Link"
+                        required
+                      />
+                    </div>
+                    <div class="mb-4">
+                      <input
+                        type="text"
+                        id="watchlink"
+                        name="watchlink"
+                        value={data.watchlink}
+                        onChange={handleChange}
+                        class="form-control"
+                        placeholder="Enter Watch Link"
+                        required
                       />
                     </div>
                     <div class="mb-4">
@@ -126,6 +176,19 @@ const AddMovie = () => {
                         onChange={handleChange}
                         class="form-control"
                         placeholder="Enter Image Link"
+                        required
+                      />
+                    </div>
+                    <div class="mb-4">
+                      <input
+                        type="text"
+                        id="tag"
+                        name="tag"
+                        value={data.tag}
+                        onChange={handleChange}
+                        class="form-control"
+                        placeholder="Enter Tag"
+                        required
                       />
                     </div>
 
@@ -139,6 +202,62 @@ const AddMovie = () => {
           </div>
         </div>
       </section>
+      <h1 className="mx-4 text-center text-light">All Movie</h1>
+      <div className="container-fluid">
+        <div className="row">
+          {allmovie.length > 0 &&
+            allmovie.map((el) => (
+              <div className="col-lg-2 col-md-2 col-sm-3 col-xs-4 col-6 mt-2">
+                <div className="card mt-1">
+                  <div
+                    className=""
+                    style={{ position: "absolute", right: "5px", top: "5px" }}
+                  >
+                    <button
+                      className="btn text-white btn-lg btn-floating"
+                      style={{
+                        backgroundColor: "#ac2bac",
+                        fontSize: "15px",
+                        height: "32px",
+                        width: "32px",
+                        marginRight: "3px",
+                      }}
+                      role="button"
+                    >
+                      <i
+                        className="fas fa-edit"
+                        style={{ margin: "-7px", padding: "0px" }}
+                      ></i>
+                    </button>
+                    <Link
+                      className="btn text-white btn-lg btn-floating"
+                      style={{
+                        backgroundColor: "#dd4b39",
+                        fontSize: "15px",
+                        height: "32px",
+                        width: "32px",
+                      }}
+                      to="#!"
+                      role="button"
+                    >
+                      <i
+                        className="fas fa-trash"
+                        style={{ margin: "-7px", padding: "0px" }}
+                      ></i>
+                    </Link>
+                  </div>
+                  <div className="card-body p-1">
+                    <img src={el.img} className="movie-img" />
+                  </div>
+                  <div className="card-footer p-1" style={{ height: "90px" }}>
+                    <h6 className="card-title">{`${el.title} (${el.year})`}</h6>
+                    <p className="card-title">{`${el.wood} (${el.language})`}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+        </div>
+      </div>
     </>
   );
 };
