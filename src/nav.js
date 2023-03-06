@@ -25,13 +25,10 @@ const Nav = () => {
     <>
       <nav className="navbar navbar-expand-lg navbar-dark bg-light-black px-0 m-pading">
         <div className="container-fluid">
-          <a className="navbar-brand mt-2 mt-lg-0 d-mobile" href="/">
-            <img
-              src="https://mdbcdn.b-cdn.net/img/logo/mdb-transaprent-noshadows.webp"
-              height="15"
-              alt="MDB Logo"
-              loading="lazy"
-            />
+          <a className="navbar-brand mt-2 mt-lg-0 d-mobile logo-6" href="/">
+            <h6>
+              <span>HdFilm</span>4U
+            </h6>
           </a>
           <div className="dropdown ms-auto mt-1 d-mobile">
             <a
@@ -93,12 +90,12 @@ const Nav = () => {
             >
               {links.map((el) => (
                 <li>
-                  <Link
+                  <a
                     className="dropdown-item text-capitalize text-light"
-                    to={`/list/${el}`}
+                    href={`/list/${el}`}
                   >
                     {el}
-                  </Link>
+                  </a>
                 </li>
               ))}
             </ul>
