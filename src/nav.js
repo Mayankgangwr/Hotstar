@@ -104,13 +104,10 @@ const Nav = () => {
             className="collapse navbar-collapse d-desktop"
             id="navbarSupportedContent"
           >
-            <a className="navbar-brand mt-2 mt-lg-0" href="/">
-              <img
-                src="https://mdbcdn.b-cdn.net/img/logo/mdb-transaprent-noshadows.webp"
-                height="15"
-                alt="MDB Logo"
-                loading="lazy"
-              />
+            <a className="navbar-brand mt-2 mt-lg-0 logo-6" href="/">
+              <h6>
+                <span>HdFilm</span>4U
+              </h6>
             </a>
             <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
               {links.map((el) => (
