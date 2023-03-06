@@ -36,14 +36,16 @@ const Lists = () => {
               >
                 <div className="card mx-2-px mt-1">
                   <div className="card-body p-2-px">
-                    <img
-                      src={el.img}
-                      style={{
-                        height: "160px",
-                        width: "100%",
-                        borderRadius: "7px",
-                      }}
-                    />
+                    <Link to={`/movie/${el.id}`}>
+                      <img
+                        src={el.img}
+                        style={{
+                          height: "160px",
+                          width: "100%",
+                          borderRadius: "7px",
+                        }}
+                      />
+                    </Link>
                   </div>
                 </div>
               </div>
