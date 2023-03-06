@@ -5,8 +5,8 @@ const Nav = () => {
   const links = [
     "bollywood",
     "hollywood",
-    "south movies",
-    "dubbed movies",
+    "south",
+    "dubbed",
     "upcoming",
     "popular",
   ];
@@ -25,7 +25,7 @@ const Nav = () => {
     <>
       <nav className="navbar navbar-expand-lg navbar-dark bg-light-black px-0 m-pading">
         <div className="container-fluid">
-          <a className="navbar-brand mt-2 mt-lg-0 d-mobile" href="#">
+          <a className="navbar-brand mt-2 mt-lg-0 d-mobile" href="/">
             <img
               src="https://mdbcdn.b-cdn.net/img/logo/mdb-transaprent-noshadows.webp"
               height="15"
@@ -107,7 +107,7 @@ const Nav = () => {
             className="collapse navbar-collapse d-desktop"
             id="navbarSupportedContent"
           >
-            <a className="navbar-brand mt-2 mt-lg-0" href="#">
+            <a className="navbar-brand mt-2 mt-lg-0" href="/">
               <img
                 src="https://mdbcdn.b-cdn.net/img/logo/mdb-transaprent-noshadows.webp"
                 height="15"

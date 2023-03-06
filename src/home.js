@@ -99,34 +99,6 @@ const Home = () => {
           ))}
       </Carousel>
       <hr />
-
-      <div className="d-flex justify-content-between text-white">
-        <span className="fw-normal ps-2">Recently Played</span>
-        <i class="fas fa-angle-right pe-2"></i>
-      </div>
-
-      <Carousel {...settings1}>
-        {allmovie.length > 0 &&
-          allmovie
-            .filter((item) => item.tag.includes("popular"))
-            .map((el, index) => (
-              <div key={el.id} className="card mx-2-px mt-1">
-                <div className="card-body p-2-px">
-                  <Link to={`/movie/${el.id}`}>
-                    <img
-                      src={el.img}
-                      style={{
-                        height: "160px",
-                        width: "100%",
-                        borderRadius: "7px",
-                      }}
-                    />
-                  </Link>
-                </div>
-              </div>
-            ))}
-      </Carousel>
-      <hr />
       {allmovie.filter((item) => item.tag.includes("upcoming")).length > 0 && (
         <>
           <Link

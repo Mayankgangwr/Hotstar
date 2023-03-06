@@ -59,7 +59,9 @@ const Movies = () => {
     axios
       .get(`https://sattasafari.com/hotstar/read.php`)
       .then(function (response) {
-        setAlmoviedt(response.data);
+        setAlmoviedt(
+          response.data.filter((item) => item.tag.includes("popular"))
+        );
       });
   }
   return (
@@ -88,12 +90,13 @@ const Movies = () => {
           </div>
           <div className="col-6 mt-2 dropdown">
             <a
-              className="btn w-100 bg-light-black me-2 dropdown-toggle hidden-arrow"
+              className="btn w-100 bg-light-black me-2 dropdown-toggle hidden-arrow p-0"
               href="#"
               id="navbarDropdownMenuLink3"
               role="button"
               data-mdb-toggle="dropdown"
               aria-expanded="false"
+              style={{ fontSize: "24px" }}
             >
               <i class="fas fa-cloud-download-alt"></i>
             </a>
@@ -110,7 +113,7 @@ const Movies = () => {
                   className="dropdown-item text-capitalize text-light"
                   href={links.link1}
                 >
-                  {`1080p (${links.size1})`}
+                  {links.size1}
                 </a>
               </li>
               <li>
@@ -118,7 +121,7 @@ const Movies = () => {
                   className="dropdown-item text-capitalize text-light"
                   href={links.link2}
                 >
-                  {`720p (${links.size2})`}
+                  {links.size2}
                 </a>
               </li>
               <li>
@@ -126,7 +129,7 @@ const Movies = () => {
                   className="dropdown-item text-capitalize text-light"
                   href={links.link2}
                 >
-                  {`480p (${links.size3})`}
+                  {links.size3}
                 </a>
               </li>
             </ul>
@@ -145,12 +148,15 @@ const Movies = () => {
             )}
           </div>*/}
           <div className="col-6 mt-2">
-            <Link
-              to={`https://5efjbo-3000.preview.csb.app/movie/${moviedt.id}`}
-              className="btn bg-light-black w-100"
+            <a
+              href={`whatsapp://send?text=https://5efjbo-3000.preview.csb.app/movie/${moviedt.id}`}
+              className="btn bg-light-black w-100 p-0"
+              data-action="share/whatsapp/share"
+              target="_blank"
+              style={{ fontSize: "24px" }}
             >
-              <i class="fas fa-share"></i>
-            </Link>
+              <i class="fab fa-whatsapp"></i>
+            </a>
           </div>
           <p className="text-start text-white fw-normal ps-1 pt-2 m-0">
             Screen Shots
@@ -175,7 +181,7 @@ const Movies = () => {
 
       <hr />
       <div className="d-flex justify-content-between text-white">
-        <span className="fw-normal ps-2">Recently Played</span>
+        <span className="fw-normal ps-2">Related Movies</span>
         <i class="fas fa-angle-right pe-2"></i>
       </div>
       <Carousel {...settings}>
@@ -199,19 +205,6 @@ const Movies = () => {
               </div>
             ))}
       </Carousel>
-      <div className="container-fluid bg-light fixed-bottom section-share-link">
-        <div className="row">
-          <div className="col-lg-1 col-md-2 col-sm-2 col-4">
-            <a
-              href="#"
-              class="btn btn-outline-success btn-floating"
-              data-mdb-ripple-color="dark"
-            >
-              <i class="fas fa-star"></i>
-            </a>
-          </div>
-        </div>
-      </div>
     </>
   );
 };
