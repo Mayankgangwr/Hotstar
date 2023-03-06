@@ -4,11 +4,17 @@
 .d-desktop {
   display: block !important;
 }
-@media screen and (max-width: 600px) {
+.m-pading {
+}
+@media screen and (max-width: 1000px) {
   .d-mobile {
     display: block !important;
   }
   .d-desktop {
     display: none !important;
+  }
+  .m-pading {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
   }
 }

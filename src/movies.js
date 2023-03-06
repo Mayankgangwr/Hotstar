@@ -38,6 +38,8 @@ const Movies = () => {
   const param = useParams();
   const [moviedt, setMoviedt] = useState([]);
   const [almoviedt, setAlmoviedt] = useState([]);
+  const [links, setLinks] = useState("");
+  const [sspic, setSspic] = useState("");
   useEffect(() => {
     getMovie();
     getAlMovie();
@@ -49,6 +51,8 @@ const Movies = () => {
         if (response.data.message !== "") {
         }
         setMoviedt(response.data[0]);
+        setLinks(JSON.parse(response.data[0].link));
+        setSspic(JSON.parse(response.data[0].ss));
       });
   }
   function getAlMovie() {
@@ -72,29 +76,75 @@ const Movies = () => {
             <img src={moviedt.img} className="movie-logo-img" />
           </div>
           <div className="col-9 text-white">
-            <p className="m-0 fs-12">{moviedt.title}</p>
+            <p className="m-0 fs-14 text-capitalize">{moviedt.title}</p>
             <p className="m-0">
-              <span className="m-0 fw-normal fs-12">Cast:-</span>
-              <span className="m-0 fs-12 fw-100">{moviedt.starcast}</span>
+              <span className="m-0 fw-normal fs-13">Cast:-</span>
+              <span className="m-0 fs-13 fw-100">{moviedt.starcast}</span>
             </p>
             <p className="m-0">
-              <span className="m-0 fw-normal fs-12">Language:- </span>
-              <span className="m-0 fs-12 fw-100">{moviedt.language}</span>
+              <span className="m-0 fw-normal fs-13">Language:- </span>
+              <span className="m-0 fs-13 fw-100">{moviedt.language}</span>
             </p>
           </div>
-          <div className="col-4 mt-2">
-            <a href={moviedt.link} className="btn bg-light-black w-100">
+          <div className="col-6 mt-2 dropdown">
+            <a
+              className="btn w-100 bg-light-black me-2 dropdown-toggle hidden-arrow"
+              href="#"
+              id="navbarDropdownMenuLink3"
+              role="button"
+              data-mdb-toggle="dropdown"
+              aria-expanded="false"
+            >
               <i class="fas fa-cloud-download-alt"></i>
             </a>
+            <ul
+              style={{
+                width: "120px",
+                boxShadow: "rgb(137 137 137) 1px 1px 1px",
+              }}
+              className="dropdown-menu dropdown-menu-end mt-2  bg-dark"
+              aria-labelledby="navbarDropdownMenuLink3"
+            >
+              <li>
+                <a
+                  className="dropdown-item text-capitalize text-light"
+                  href={links.link1}
+                >
+                  {`1080p (${links.size1})`}
+                </a>
+              </li>
+              <li>
+                <a
+                  className="dropdown-item text-capitalize text-light"
+                  href={links.link2}
+                >
+                  {`720p (${links.size2})`}
+                </a>
+              </li>
+              <li>
+                <a
+                  className="dropdown-item text-capitalize text-light"
+                  href={links.link2}
+                >
+                  {`480p (${links.size3})`}
+                </a>
+              </li>
+            </ul>
           </div>
-          <div className="col-4 mt-2">
-            <Link to={`/watch/${moviedt.id}`}>
-              <button className="btn bg-light-black w-100">
+          {/*<div className="col-4 mt-2">
+            {moviedt.id == "" ? (
+              <button className="btn bg-light-black w-100" disabled>
                 <i class="far fa-eye"></i>
               </button>
-            </Link>
-          </div>
-          <div className="col-4 mt-2">
+            ) : (
+              <Link to={`/watch/${moviedt.id}`}>
+                <button className="btn bg-light-black w-100">
+                  <i class="far fa-eye"></i>
+                </button>
+              </Link>
+            )}
+          </div>*/}
+          <div className="col-6 mt-2">
             <Link
               to={`https://5efjbo-3000.preview.csb.app/movie/${moviedt.id}`}
               className="btn bg-light-black w-100"
@@ -108,16 +158,16 @@ const Movies = () => {
 
           {/* Screen Shots */}
           <div className="col-xl-2 col-lg-3 col-md-4 col-sm-4 col-6 px-1 mt-2">
-            <img src={moviedt.img} className="movie-ss-img" />
+            <img src={sspic.img1} className="movie-ss-img" />
           </div>
           <div className="col-xl-2 col-lg-3 col-md-4 col-sm-4 col-6 px-1 mt-2">
-            <img src={moviedt.img} className="movie-ss-img" />
+            <img src={sspic.img2} className="movie-ss-img" />
           </div>
           <div className="col-xl-2 col-lg-3 col-md-4 col-sm-4 col-6 px-1 mt-2">
-            <img src={moviedt.img} className="movie-ss-img" />
+            <img src={sspic.img3} className="movie-ss-img" />
           </div>
           <div className="col-xl-2 col-lg-3 col-md-4 col-sm-4 col-6 px-1 mt-2">
-            <img src={moviedt.img} className="movie-ss-img" />
+            <img src={sspic.img4} className="movie-ss-img" />
           </div>
           {/* close Screen Shots */}
         </div>
@@ -149,6 +199,19 @@ const Movies = () => {
               </div>
             ))}
       </Carousel>
+      <div className="container-fluid bg-light fixed-bottom section-share-link">
+        <div className="row">
+          <div className="col-lg-1 col-md-2 col-sm-2 col-4">
+            <a
+              href="#"
+              class="btn btn-outline-success btn-floating"
+              data-mdb-ripple-color="dark"
+            >
+              <i class="fas fa-star"></i>
+            </a>
+          </div>
+        </div>
+      </div>
     </>
   );
 };
