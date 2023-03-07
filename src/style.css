@@ -11,6 +11,11 @@ body {
   font-size: large;
   font-weight: bolder;
 }
+.text-white1 {
+  color: #fff !important;
+  font-size: 13px;
+  font-weight: 400;
+}
 .p-2-px {
   padding: 2px !important;
 }

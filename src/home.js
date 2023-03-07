@@ -4,6 +4,7 @@ import "react-multi-carousel/lib/styles.css";
 import axios from "axios";
 import "./style.css";
 import Nav from "./nav";
+import Banner from "./banner";
 import { Outlet, Link } from "react-router-dom";
 
 const settings = {
@@ -86,7 +87,7 @@ const Home = () => {
   return (
     <>
       <Nav />
-      <Carousel {...settings}>
+      {/*<Carousel {...settings}>
         {slider.length > 0 &&
           slider.map((el) => (
             <div key={el.id} className="card mx-1 mt-1">
@@ -98,6 +99,8 @@ const Home = () => {
             </div>
           ))}
       </Carousel>
+      */}
+      <Banner slider={slider} />
       <hr />
       {allmovie.filter((item) => item.tag.includes("upcoming")).length > 0 && (
         <>
