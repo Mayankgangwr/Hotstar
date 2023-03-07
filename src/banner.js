@@ -1,6 +1,7 @@
 import React from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
+import { Outlet, Link, useParams } from "react-router-dom";
 import "./banner.css";
 const settings = {
   infinite: true,
@@ -74,16 +75,19 @@ const Banner = ({ slider }) => {
                       </p>
                       <hr className="mx-5 mt-4" />
                       <div className="d-flex justify-content-center mt-4 mb-5">
-                        <button
-                          type="button"
+                        <Link
+                          to={`/movie/${el.id}`}
                           class="btn text-white1 me-3"
                           style={{ background: "#051937" }}
                           data-mdb-ripple-color="dark"
                         >
+                          {" "}
                           Download
-                        </button>
-                        <button
-                          type="button"
+                        </Link>
+                        <a
+                          href={`whatsapp://send?text=${window.location.href}`}
+                          data-action="share/whatsapp/share"
+                          target="_blank"
                           class="btn ms-3"
                           style={{
                             border: "2px solid #051937",
@@ -94,7 +98,7 @@ const Banner = ({ slider }) => {
                           data-mdb-ripple-color="dark"
                         >
                           Share
-                        </button>
+                        </a>
                       </div>
                     </div>
                   </div>
