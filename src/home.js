@@ -98,6 +98,7 @@ const Home = () => {
             </div>
           ))}
       </Carousel>
+      <hr />
       {allmovie.filter((item) => item.tag.includes("upcoming")).length > 0 && (
         <>
           <Link
