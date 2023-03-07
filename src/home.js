@@ -98,7 +98,6 @@ const Home = () => {
             </div>
           ))}
       </Carousel>
-      <hr />
       {allmovie.filter((item) => item.tag.includes("upcoming")).length > 0 && (
         <>
           <Link
@@ -129,9 +128,9 @@ const Home = () => {
                   </div>
                 ))}
           </Carousel>
+          <hr />
         </>
       )}
-      <hr />
       {allmovie.filter((item) => item.tag.includes("popular")).length > 0 && (
         <>
           <Link
@@ -162,9 +161,9 @@ const Home = () => {
                   </div>
                 ))}
           </Carousel>
+          <hr />
         </>
       )}
-      <hr />
       {allmovie.filter((item) => item.tag.includes("bollywood")).length > 0 && (
         <>
           <Link
@@ -195,9 +194,9 @@ const Home = () => {
                   </div>
                 ))}
           </Carousel>
+          <hr />
         </>
       )}
-      <hr />
       {allmovie.filter((item) => item.tag.includes("hollywood")).length > 0 && (
         <>
           <Link
