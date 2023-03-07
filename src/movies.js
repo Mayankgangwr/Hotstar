@@ -127,7 +127,7 @@ const Movies = () => {
               <li>
                 <a
                   className="dropdown-item text-capitalize text-light"
-                  href={links.link2}
+                  href={links.link3}
                 >
                   {links.size3}
                 </a>
@@ -149,7 +149,7 @@ const Movies = () => {
           </div>*/}
           <div className="col-6 mt-2">
             <a
-              href={`whatsapp://send?text=https://5efjbo-3000.preview.csb.app/movie/${moviedt.id}`}
+              href={`whatsapp://send?text=${window.location.href}`}
               className="btn bg-light-black w-100 p-0"
               data-action="share/whatsapp/share"
               target="_blank"
