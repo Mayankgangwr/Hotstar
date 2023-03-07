@@ -1,14 +1,14 @@
-hr {
+.banner hr {
   color: #000;
   padding: 0px;
   line-height: 1px;
   border-top: 2px solid;
   opacity: 1.25;
 }
-.banner-card {
+.banner .banner-card {
   border-radius: 15px;
 }
-.banner-img {
+.banner .banner-img {
   height: 260px;
   width: 100%;
   border-radius: 15px;

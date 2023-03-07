@@ -33,7 +33,10 @@ const settings = {
 const Banner = ({ slider }) => {
   return (
     <>
-      <div className="container-fluid  pb-5 px-0" style={{ marginTop: "53px" }}>
+      <div
+        className="container-fluid banner pb-1 px-0"
+        style={{ marginTop: "10px" }}
+      >
         <div className="row">
           <div className="col-12">
             <Carousel {...settings}>
