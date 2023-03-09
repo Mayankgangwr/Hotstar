@@ -207,13 +207,47 @@ const Home = () => {
             to={`/list/hollywood`}
             className="d-flex justify-content-between text-white"
           >
-            <span className="fw-normal ps-2">Hollywood Movies</span>
+            <span className="fw-normal ps-2">
+              Hollywood Hindi Dubbed Movies
+            </span>
             <i class="fas fa-angle-right pe-2"></i>
           </Link>
           <Carousel {...settings1}>
             {allmovie.length > 0 &&
               allmovie
                 .filter((item) => item.tag.includes("hollywood"))
+                .map((el, index) => (
+                  <div key={el.id} className="card mx-2-px mt-1">
+                    <div className="card-body p-2-px">
+                      <Link to={`/movie/${el.id}`}>
+                        <img
+                          src={el.img}
+                          style={{
+                            height: "160px",
+                            width: "100%",
+                            borderRadius: "7px",
+                          }}
+                        />
+                      </Link>
+                    </div>
+                  </div>
+                ))}
+          </Carousel>
+        </>
+      )}
+      {allmovie.filter((item) => item.tag.includes("south")).length > 0 && (
+        <>
+          <Link
+            to={`/list/hollywood`}
+            className="d-flex justify-content-between text-white"
+          >
+            <span className="fw-normal ps-2">South Hindi Dubbed Movies</span>
+            <i class="fas fa-angle-right pe-2"></i>
+          </Link>
+          <Carousel {...settings1}>
+            {allmovie.length > 0 &&
+              allmovie
+                .filter((item) => item.tag.includes("south"))
                 .map((el, index) => (
                   <div key={el.id} className="card mx-2-px mt-1">
                     <div className="card-body p-2-px">

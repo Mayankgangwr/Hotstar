@@ -174,8 +174,8 @@ const AddMovie = () => {
                           <option value="">Select Wood</option>
                           <option value="bollywood">Bollywood</option>
                           <option value="hollywood">Hollywood</option>
-                          <option value="south movie">South Movie</option>
-                          <option value="dubbed movie">Dubbed Movie</option>
+                          <option value="south">South Movie</option>
+                          <option value="dubbed">Dubbed Movie</option>
                           <option value="upcoming">UpComing</option>
                           <option value="Populer">Popular</option>
                         </select>
