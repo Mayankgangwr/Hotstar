@@ -87,19 +87,6 @@ const Home = () => {
   return (
     <>
       <Nav />
-      {/*<Carousel {...settings}>
-        {slider.length > 0 &&
-          slider.map((el) => (
-            <div key={el.id} className="card mx-1 mt-1">
-              <div className="card-body p-1">
-                <Link to={`/movie/${el.id}`}>
-                  <img src={el.img} className="slider-img" />
-                </Link>
-              </div>
-            </div>
-          ))}
-      </Carousel>
-      */}
       <Banner slider={slider} />
       <hr />
       {allmovie.filter((item) => item.tag.includes("upcoming")).length > 0 && (

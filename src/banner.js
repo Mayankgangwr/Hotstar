@@ -39,7 +39,7 @@ const Banner = ({ slider }) => {
         style={{ marginTop: "10px" }}
       >
         <div className="row">
-          <div className="col-12">
+          <div className="col-12 d-desktop">
             <Carousel {...settings}>
               {slider.length > 0 &&
                 slider.map((el) => (
@@ -100,6 +100,20 @@ const Banner = ({ slider }) => {
                           Share
                         </a>
                       </div>
+                    </div>
+                  </div>
+                ))}
+            </Carousel>
+          </div>
+          <div className="col-12 d-mobile">
+            <Carousel {...settings}>
+              {slider.length > 0 &&
+                slider.map((el) => (
+                  <div key={el.id} className="card mx-1 mt-1">
+                    <div className="card-body p-1">
+                      <Link to={`/movie/${el.id}`}>
+                        <img src={el.img} className="slider-img" />
+                      </Link>
                     </div>
                   </div>
                 ))}
