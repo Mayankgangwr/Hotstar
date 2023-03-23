@@ -81,7 +81,7 @@ const Watch = () => {
         muted
         controls
         alt="All the devices"
-        src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
+        src="https://dl.lisaxoj260.workers.dev/0:/HollyWood/Luther.The.Fallen.Sun.2023/Luther.The.Fallen.Sun.2023.Hindi.English.1080p.WEB-DL.ESub-DudeFilms.in.mkv"
         ref={videoEl}
       />
       <div className="container-fluid">
